@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sales Summary</title>
+      <style>
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background-color: #f7f9fc;
+            margin: 40px;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            background-color: white;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .total-row {
+            font-weight: bold;
+            background-color: #e8f4ff;
+        }
+
+        .no-data {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 18px;
+            color: #888;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #555;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sales Summary</h1>
+
+    {% if transactions %}
+        <table border="1" cellpadding="8">
+            <tr>
+                <th>Transaction ID</th>
+                <th>Date & Time</th>
+                <th>Total Amount</th>
+            </tr>
+
+            {% for transaction in transactions %}
+            <tr>
+                <td>
+                    <a href="{% url 'transaction_detail' transaction.id }}">
+                        {{ transaction.id }}
+                    </a>
+                </td>
+                <td>{{ transaction.timestamp }}</td>
+                <td>{{ transaction.total_amount }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No transactions yet.</p>
+    {% endif %}
+
+    <hr>
+    <nav>
+        <a href="{% url 'product_list' %}">Product</a> |
+        <a href="{% url 'record_sale' %}">Record Sale</a>
+    </nav>
+</body>
+</html>

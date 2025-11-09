@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Transaction Details</title>
+</head>
+<body>
+    <h1>Transaction #{{ transaction.id }}</h1>
+    <p><strong>Date:</strong> {{ transaction.timestamp }}</p>
+    <p><strong>Total Amount:</strong> {{ transaction.total_amount }}</p>
+
+    <h2>Items Sold</h2>
+
+    {% if transaction.items.all %}
+        <table border="1" cellpadding="8">
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+            </tr>
+            {% for item in transaction.items.all %}
+            <tr>
+                <td>{{ item.product.name }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.subtotal }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No item recorded for this transaction.</p>
+    {% endif %}
+
+    <hr>
+    <nav>
+        <a href="{% url 'sales_summary' %}">← Back to Sales Summary</a> |
+        <a href="{% url 'record_sale' %}">Record New Sale</a>
+    </nav>
+</body>
+</html>
