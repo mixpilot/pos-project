@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Login | POS System</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block content %}
     <h2>Login to POS</h2>
 
     {% if messages %}
@@ -24,5 +21,4 @@
     </form>
 
     <p>Don't have an account? <a href="{% url 'signup' %}">Sign Up</a> </p>
-</body>
-</html>
+{% endblock %}

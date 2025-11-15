@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Product List</title>
-</head>
-<body>
-    {% if user.is_authenticated %}
-    <p>Welcome, {{ user.username }} | <a href="{% url 'logout' %}">Logout</a></p>
-    {% endif %}
+{% extends 'base.html' %}
 
+{% block content %}
     <h1>Club Products </h1>
 
     <a href="{% url 'add_product' %}">Add New Product</a>
@@ -36,5 +29,4 @@
             {% endfor %}
         </tbody>
     </table>
-</body>
-</html>
+{% endblock %}

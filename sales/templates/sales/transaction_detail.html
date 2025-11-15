@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Transaction Details</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block content %}
     <h1>Transaction #{{ transaction.id }}</h1>
     <p><strong>Date:</strong> {{ transaction.timestamp }}</p>
     <p><strong>Total Amount:</strong> {{ transaction.total_amount }}</p>
@@ -34,5 +31,3 @@
         <a href="{% url 'sales_summary' %}">← Back to Sales Summary</a> |
         <a href="{% url 'record_sale' %}">Record New Sale</a>
     </nav>
-</body>
-</html>

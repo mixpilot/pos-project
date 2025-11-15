@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Record Sale</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block content %}
     <h1>Record a Sale</h1>
 
     <form method="POST">
@@ -20,5 +17,4 @@
 
         <button type="submit">Record Sale</button>
     </form>
-</body>
-</html>
+{% endblock %}

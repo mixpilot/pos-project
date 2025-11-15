@@ -1,7 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Sales Summary</title>
+{% extends 'base.html' %}
+
+{% block content %}
       <style>
         body {
             font-family: "Segoe UI", Arial, sans-serif;
@@ -57,8 +56,7 @@
             font-size: 14px;
         }
     </style>
-</head>
-<body>
+
     <h1>Sales Summary</h1>
 
     {% if transactions %}
@@ -90,5 +88,4 @@
         <a href="{% url 'product_list' %}">Product</a> |
         <a href="{% url 'record_sale' %}">Record Sale</a>
     </nav>
-</body>
-</html>
+{% endblock %}
